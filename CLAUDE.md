@@ -37,7 +37,8 @@ See `documents/labarchives_TRPV1_comparison_maxmin_vs_random.md` for full analys
 4. ~~Rounds 0–5 maxmin_init~~ **DONE (2026-02-21)**
 5. ~~Rounds 0–5 random_init~~ **DONE (2026-02-22)**
 6. ~~MaxMin vs random comparison analysis~~ **DONE (2026-02-22)**
-7. **Next:** Temperature ablation (greedy T=0 and exploratory T=5)
+7. ~~Temperature ablation setup~~ **DONE (2026-02-23)** — configs, T=0 code, round-0 data shared from `random_init`
+8. **Next:** Run temperature ablation (greedy T=0 and exploratory T=5) — start from round 1
 
 ## Temperature Ablation — Phase 2 Experiments
 
@@ -56,18 +57,9 @@ T controls the exploration/exploitation balance in `select_batch.py`:
 | `random_T1` | 1.0 | Baseline (already done as `random_init`) |
 | `random_T5` | 5.0 | Near-exploratory — mild preference for predicted hits, broad coverage |
 
-**T=0 implementation (greedy mode) — requires change to `select_batch.py`:**
-At T=0, `neg_scores / T` is undefined. Add a special case before the softmax block:
-```python
-if cfg.temperature == 0:
-    # Deterministic greedy: rank compounds by predicted score, pick top batch_size
-    ranked_idx = np.argsort(-neg_scores)  # descending neg_score = ascending score
-    selected = [i for i in ranked_idx
-                if valid_mask[i] and not excluded_mask[i]][:cfg.batch_size]
-    compound_ids = (np.array(selected) + 1).tolist()
-    # ... write to DB as usual
-```
-Config: set `temperature: 0` in YAML, check for it in `al_loop.py` → `select_batch.py`.
+**T=0 implementation (greedy mode) — DONE in `select_batch.py` (lines 193-205):**
+At T=0, softmax is undefined. `select_batch.py` special-cases this: sets ineligible rows to
+`-inf`, argsorts descending, takes top-K. Source label = `'greedy_select'`.
 
 **T=5 — no code changes needed**, just set `temperature: 5.0` in config.
 
@@ -79,17 +71,23 @@ Config: set `temperature: 0` in YAML, check for it in `al_loop.py` → `select_b
   best vs mean compound (vs exp(8/1) ≈ 3000× at T=1). This is much closer to random
   sampling. Will likely show broader scaffold coverage but slower convergence to top hits.
 
-**To run (once configs are created):**
+**Round-0 data sharing (2026-02-23):**
+Both `random_T0` and `random_T5` reuse `random_init`'s round-0 data (same seed=123).
+Round-0 `al_batches` and `docking_scores` rows were copied into the new experiment_ids.
+Round-0 model/metrics/hparams symlinked in `models/`. Start from round 1 to skip
+redundant docking.
+
+**To run:**
 ```bash
 source env_db.sh && conda activate chem
 nvidia-cuda-mps-control -d
-# Greedy (requires select_batch.py change first)
+# Greedy (T=0) — rounds 1–5
 nohup python scripts/active_learning/al_loop.py \
-    --config config/al_loop_greedy.yaml --start-round 0 --rounds 6 \
+    --config config/al_loop_greedy.yaml --start-round 1 --rounds 5 \
     >> logs/al_loop_random_T0_stdout.log 2>&1 &
-# Exploratory
+# Exploratory (T=5) — rounds 1–5
 nohup python scripts/active_learning/al_loop.py \
-    --config config/al_loop_explore.yaml --start-round 0 --rounds 6 \
+    --config config/al_loop_explore.yaml --start-round 1 --rounds 5 \
     >> logs/al_loop_random_T5_stdout.log 2>&1 &
 ```
 
