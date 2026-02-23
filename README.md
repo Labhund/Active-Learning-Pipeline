@@ -1,6 +1,6 @@
-# TRPV1 Active Learning HTVS Pipeline
+# Active Learning HTVS Pipeline
 
-Active learning (AL) pipeline for high-throughput virtual screening of ~300M ZINC20 compounds against **TRPV1** (Transient Receptor Potential Vanilloid 1) for analgesic drug discovery.
+Active learning (AL) pipeline for high-throughput virtual screening of ~300M ZINC20 compounds against **TRPV1** (Transient Receptor Potential Vanilloid 1)
 
 ## Method
 
