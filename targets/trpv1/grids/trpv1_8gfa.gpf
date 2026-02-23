@@ -1,0 +1,25 @@
+npts 48 44 60
+gridfld trpv1_8gfa.fld
+spacing 0.303
+receptor_types A C N NA OA P SA HD
+ligand_types A C Br Cl F HD N NA OA SA S I P
+receptor /data2/lipin_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
+# gridcenter: set in ADT after visual inspection (ZEI:D:1203, chain D/A interface)
+gridcenter 81.581 101.331 86.875
+smooth 0.5
+map trpv1_8gfa.A.map
+map trpv1_8gfa.C.map
+map trpv1_8gfa.Br.map
+map trpv1_8gfa.Cl.map
+map trpv1_8gfa.F.map
+map trpv1_8gfa.HD.map
+map trpv1_8gfa.N.map
+map trpv1_8gfa.NA.map
+map trpv1_8gfa.OA.map
+map trpv1_8gfa.SA.map
+map trpv1_8gfa.S.map
+map trpv1_8gfa.I.map
+map trpv1_8gfa.P.map
+elecmap trpv1_8gfa.e.map
+dsolvmap trpv1_8gfa.d.map
+dielectric -0.1465

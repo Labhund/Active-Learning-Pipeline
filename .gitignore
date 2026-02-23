@@ -1,0 +1,56 @@
+# ── Large data ───────────────────────────────────────────────
+data/fingerprints/          # 156 GB Morgan FP HDF5 + validity mask
+data/zinc20/                # 18 GB ZINC20 source .smi files
+data/zinc22/                # ZINC22 subset
+data/postgres/              # 81 GB local PostgreSQL data directory
+
+# ── Trained models & hyperparameters (regenerable) ──────────
+models/
+
+# ── Optuna study databases ──────────────────────────────────
+optuna/
+
+# ── Predicted scores (regenerable from models + FPs) ────────
+scores/
+
+# ── Docking work directories (transient, results in DB) ─────
+work/
+
+# ── Logs ────────────────────────────────────────────────────
+logs/
+
+# ── MemProtMD simulation files (supplementary reference) ────
+memprotmd/
+
+# ── Target structure source files (downloadable from RCSB) ──
+targets/trpv1/structures/pdb/
+
+# ── Analysis outputs (regenerable from DB + scripts) ────────
+analysis/figures/
+analysis/diversity_study/figures/
+analysis/diversity_study/cache/
+analysis/*.csv
+analysis/__pycache__/
+
+# ── Ephemeral top-level files ───────────────────────────────
+backfill*.log
+backfill_state.txt
+ingestion.log
+build_fingerprints.log
+STOP_AL_*
+
+# ── Python cache ────────────────────────────────────────────
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# ── IDE / editor ────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Claude Code local settings ──────────────────────────────
+.claude/

@@ -1,0 +1,43 @@
+target:         trpv1_8gfa
+experiment_id:  random_T0     # Round-0: uniform random; rounds 1+: greedy (T=0)
+stop_file:      STOP_AL_random_T0  # touch to halt after current round
+
+# Docking infrastructure (must be set up before running)
+receptor_pdbqt: targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
+grid_maps:      targets/trpv1/grids/trpv1_8gfa.fld
+
+# Data paths
+fp_file:    data/fingerprints/compounds.h5
+model_dir:  models/
+score_dir:  scores/
+work_dir:   work/docking/
+optuna_dir: optuna/
+metrics_csv: logs/al_metrics.csv  # deprecated; actual path uses experiment_id
+
+# AL hyperparameters
+batch_size:     24000
+init_threads:          24
+subsample_per_worker:  500000
+prep_threads:   18
+dock_workers:   2
+dock_batch_size: 100
+temperature:    0     # T=0: greedy deterministic top-K (pure exploitation)
+                      # select_batch.py special-cases this: argsort instead of softmax.
+                      # DB source label = 'greedy_select' (not 'thompson_sample').
+fail_threshold: 0.0
+seed:           123   # same as random_init; seed is ignored for T=0 selection
+
+hparam_tune_every_n_rounds: 3
+optuna_trials:  30
+
+xgboost:
+  n_estimators: 500
+  max_depth:    6
+  learning_rate: 0.1
+  subsample:    0.8
+  device:       cuda
+
+autodock:
+  nrun:   20
+
+reporting_interval: 500
