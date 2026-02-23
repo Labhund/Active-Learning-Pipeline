@@ -235,7 +235,7 @@ def main():
     # Resolve output path
     out_path = Path(args.out)
     if not out_path.is_absolute():
-        proj_root = os.getenv("PROJ_ROOT", "/data2/lipin_lab/markus/analgesics")
+        proj_root = os.getenv("PROJ_ROOT", "/data2/loo_lab/markus/analgesics")
         out_path = Path(proj_root) / out_path
 
     # --- Phase 0: preflight ---

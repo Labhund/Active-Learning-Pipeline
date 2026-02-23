@@ -2,7 +2,7 @@
 # ZINC20 HTVS Environment Configuration
 
 # Define paths relative to the project root on the NVMe
-export PROJ_ROOT="/data2/lipin_lab/markus/analgesics"
+export PROJ_ROOT="/data2/loo_lab/markus/analgesics"
 export PGDATA="$PROJ_ROOT/data/postgres/data"
 export PGHOST="$PROJ_ROOT/data/postgres/data" # Socket location
 export PGLOG="$PROJ_ROOT/data/postgres/server.log"

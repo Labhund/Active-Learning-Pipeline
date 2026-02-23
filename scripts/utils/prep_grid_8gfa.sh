@@ -12,7 +12,7 @@
 #   3. Generate autogrid4 maps (you must edit gridcenter in GPF first)
 
 set -euo pipefail
-PROJ="${PROJ_ROOT:-/data2/lipin_lab/markus/analgesics}"
+PROJ="${PROJ_ROOT:-/data2/loo_lab/markus/analgesics}"
 cd "$PROJ"
 
 PDBDIR="targets/trpv1/structures/pdb"

@@ -14,7 +14,7 @@ RDLogger.DisableLog("rdApp.*")
 # Configuration
 DB_NAME = "analgesics"
 DB_USER = "labhund"
-PROJ_ROOT = os.getenv("PROJ_ROOT", "/data2/lipin_lab/markus/analgesics")
+PROJ_ROOT = os.getenv("PROJ_ROOT", "/data2/loo_lab/markus/analgesics")
 ZINC_DIR = os.path.join(PROJ_ROOT, "data/zinc20")
 NUM_WORKERS = 18
 

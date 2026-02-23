@@ -9,7 +9,7 @@ from rdkit import RDLogger
 # RDLogger.DisableLog("rdany.cp")
 
 # Configuration
-ZINC_DIR = "/data2/lipin_lab/markus/analgesics/data/zinc20"
+ZINC_DIR = "/data2/loo_lab/markus/analgesics/data/zinc20"
 NUM_WORKERS = 6
 MAX_TASKS_PER_CHILD = 1
 SAMPLES_PER_CORE = 1000

@@ -7,7 +7,7 @@
 #SPACING 0.303
 #NELEMENTS 48 44 60
 #CENTER 81.581 101.331 86.875
-#MACROMOLECULE /data2/lipin_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
+#MACROMOLECULE /data2/loo_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
 #GRID_PARAMETER_FILE trpv1_8gfa.gpf
 #
 ndim=3			# number of dimensions in the field

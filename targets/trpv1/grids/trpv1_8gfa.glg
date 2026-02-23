@@ -112,9 +112,9 @@ Atom type names for ligand atom types 1-13 used for ligand-atom affinity grid ma
 			Atom type number 13 corresponds to atom type name "P".
 
 
-GPF> receptor /data2/lipin_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
+GPF> receptor /data2/loo_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
 
-Receptor Input File :	/data2/lipin_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
+Receptor Input File :	/data2/loo_lab/markus/analgesics/targets/trpv1/structures/pdbqt/trpv1_8gfa.pdbqt
 
 Receptor Atom Type Assignments:
 

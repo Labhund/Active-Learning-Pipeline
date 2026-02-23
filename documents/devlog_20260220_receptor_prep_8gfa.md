@@ -412,7 +412,7 @@ Note on dimorphite-dl CLI: the v2.0.2 binary uses a positional `SMI` argument (n
 ### Docking run
 
 ```bash
-/data2/lipin_lab/markus/analgesics/bin/autodock_gpu \
+/data2/loo_lab/markus/analgesics/bin/autodock_gpu \
     --ffile targets/trpv1/grids/trpv1_8gfa.fld \
     --lfile /tmp/capsaicin_dock/capsaicin.pdbqt \
     --resnam /tmp/capsaicin_dock/capsaicin_result \
