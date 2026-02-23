@@ -85,4 +85,4 @@ See `CLAUDE.md` for detailed architecture notes, individual script CLIs, and mon
 
 ## License
 
-Internal use — Lipin Lab.
+Internal use — Loo Lab.
